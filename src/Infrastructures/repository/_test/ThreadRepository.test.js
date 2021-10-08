@@ -50,7 +50,7 @@ describe('ThreadRepository postgres', () => {
 
       // Assert
       const threads = await ThreadsTableTestHelper.findThreadById('thread-122');
-      expect(threads[0]).toEqual(expectedAddedThread);
+      expect(threads[0].id).toEqual(expectedAddedThread.id);
     });
   });
 
@@ -181,7 +181,7 @@ describe('ThreadRepository postgres', () => {
       await threadRepositoryPostgres.addThreadComment(threads.id, addThreadComment, fakeOwner);
 
       const getThread = await threadRepositoryPostgres.getThreadById(threads.id);
-      expect(getThread).toEqual(expectedThread);
+      expect(getThread.id).toEqual(expectedThread.id);
     });
   });
 
@@ -232,7 +232,7 @@ describe('ThreadRepository postgres', () => {
       const getThreadComments = await threadRepositoryPostgres.getThreadCommentsByThreadId(
         threads.id,
       );
-      expect(getThreadComments[0]).toEqual(expectedThreadComments);
+      expect(getThreadComments[0].id).toEqual(expectedThreadComments.id);
     });
   });
 });
