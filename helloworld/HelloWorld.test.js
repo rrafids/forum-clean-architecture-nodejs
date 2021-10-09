@@ -6,6 +6,6 @@ describe('printHelloWorld function', () => {
     const string = printHelloWorld();
 
     // Assert
-    expect(string).toEqual('Hello World');
+    expect(string).toEqual('Hello World!');
   });
 });
